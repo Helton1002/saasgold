@@ -1,0 +1,152 @@
+🚨 ATENÇÃO! Informações cruciais antes de iniciar a instalação:
+
+1️⃣ Sistema Operacional: Utilize Ubuntu 20.04. 🐧
+
+2️⃣ Recursos Mínimos:
+* 4 vCPUs 💪
+* 6 GB de RAM 🧠
+
+3️⃣ Recursos Recomendados:
+* 4 vCPUs 💪
+* 8 GB de RAM 🧠
+
+4️⃣ VPS: Sugerimos o plano Standard da Peramix para melhor performance! 🚀
+* https://control.peramix.com/  use o cupom SEMTAXASETUPVPSPERAMIX
+
+5️⃣ PING (Essencial):  pingue os endereços frontend e backend para o IP do servidor ANTES de instalar. 🏓
+* Verifique a propagação global em: https://dnschecker.org/ 🌎
+* Use o prompt de comando no Windows (tecla Windows + R, digite "cmd") e execute: ping seudominio.com.br
+
+6️⃣ Nome do App: NÃO UTILIZAR caracteres especiais, letras maiúsculas e números. 🚫🔠🔢
+
+7️⃣ Firewall: Consulte seu provedor de VPS sobre a necessidade de liberar as portas: 22, 80, 443, 3000, 4000, 5000, 5432 e 6379. 🧱🔓
+
+8️⃣ Acesso Root: Se não conseguir acessar diretamente com o usuário root, habilite o privilégio:
+* sudo su
+* ou sudo passwd root (defina uma senha), sudo su (faça login com a senha definida). 🧑‍🔧 #
+
+Seguindo estas instruções, sua instalação será mais suave e você evitará dores de cabeça! 😉
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+🚀 Passo 01 - Atualizar o Servidor 🚀
+
+Vamos começar atualizando seu servidor Ubuntu para garantir que você tenha as últimas versões de software e segurança! 🛡️
+
+1️⃣ Acesse seu servidor via SSH com privilégios de root. 🧑‍💻
+
+2️⃣ Execute o seguinte comando para atualizar os pacotes:
+
+sudo apt update -y && sudo apt upgrade -y
+ 
+Este comando fará duas coisas:
+
+sudo apt -y update: Atualiza a lista de pacotes disponíveis nos repositórios do Ubuntu. 🔄
+apt -y upgrade: Atualiza os pacotes instalados para as versões mais recentes. ⏫
+O -y evita que o sistema pergunte se você deseja continuar com a atualização, agilizando o processo. 😉
+
+3️⃣ Reinicie o servidor para aplicar as atualizações:
+
+reboot
+
+Aguarde alguns minutos para o servidor reiniciar e reconecte-se via SSH. ⏳
+
+Pronto! Seu servidor está atualizado e pronto para o próximo passo da instalação. 💪
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+🚀 Passo 02 - Baixar o Instalador do GitHub 🚀
+
+Agora, vamos baixar o instalador que automatizará a configuração do seu ambiente! 🤖
+
+1️⃣ Conecte-se ao seu servidor via SSH. Utilize o Bitvise ou outro cliente SSH de sua preferência. 🖥️
+
+2️⃣ Navegue até o diretório "home":
+
+cd /home
+
+3️⃣ Execute o seguinte comando:
+
+sudo apt install -y git && git clone https://github.com/TurboMarkt/instalador.git instalador && sudo chmod -R 777 instalador && cd instalador && sudo ./install_primaria
+
+Vamos entender o que cada parte desse comando faz:
+
+sudo apt install -y git: Instala o Git, ferramenta essencial para trabalhar com repositórios do GitHub. 🔨
+git clone https://github.com/TurboMarkt/instalador.git instalador: Clona (baixa) o repositório do instalador para uma pasta chamada "instalador". 📥
+sudo chmod -R 777 instalador: Atribui permissões de leitura, escrita e execução para todos os arquivos e pastas dentro da pasta "instalador". 🔓
+cd instalador: Navega até a pasta "instalador". ➡️
+sudo ./install_primaria: Executa o script de instalação principal. 🚀
+
+Observações:
+
+O script install_primaria automatiza diversas etapas da configuração, economizando tempo e esforço. ⏱️
+As permissões 777 são necessárias para que o script de instalação possa executar sem problemas.
+Certifique-se de que você está conectado como root ou que possui privilégios de sudo para executar os comandos. 🧑‍🔧
+Ao finalizar a execução do comando, aguarde a instalação completar. O processo pode levar alguns minutos, dependendo dos recursos do seu servidor e da velocidade da sua internet. ⏳
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+🎉 Passo 03 - Executar a Instalação 🎉
+
+Chegou a hora de colocar a mão na massa e instalar o Whaticket! 💪 Siga as instruções do terminal com atenção e utilize os emojis como guia:
+
+0️⃣ Selecione a opção [0] Instalar Whaticket  ✅
+
+1️⃣ Defina uma senha para o usuário "Deploy" e para o Banco de Dados: 🔑
+
+🚫 IMPORTANTE: Não use caracteres especiais ou letras maiúsculas.
+Digite a senha quando solicitado: ➡️ Digite a senha para o usuário Deploy e Banco de Dados:
+📝 Anote essa senha em um local seguro, você precisará dela mais tarde!
+
+2️⃣ Cole o link do repositório do seu Whaticket: 🔗
+
+Cole este link: https://github.com/TurboMarkt/saasgold.git ➡️ Insira o link do GITHUB do seu Whaticket que deseja instalar:
+
+3️⃣ Escolha um nome para sua instância (sem espaços, caracteres especiais ou letras maiúsculas): 🏷️
+
+Exemplo: nomedoapp ➡️ Informe um nome para a Instancia/Empresa que será instalada:
+
+4️⃣ Defina a quantidade de conexões/Whats que poderão ser cadastradas (1 a 9999): 🔢
+
+Digite: 9999 ➡️ Informe a Qt. de de Conexões/Whats que a poderá cadastrar:
+
+5️⃣ Defina a quantidade de usuários/atendentes que poderão ser cadastrados (1 a 9999): 🧑‍💼
+
+Digite: 9999 ➡️ Informe a Qt. de Usuários/Atendentes que a poderá cadastrar:
+
+6️⃣ Digite o domínio do frontend/painel: 🌐
+
+Exemplo: app.seudominio.com ➡️ Digite o domínio do FRONTEND/PAINEL;
+
+7️⃣ Digite o domínio do backend/API: ⚙️
+
+Exemplo: api.seudominio.com ➡️ Digite o domínio do BACKEND/API;
+
+8️⃣ Escolha a porta do frontend (3000 a 3999): 🚪
+
+Digite: 3000 ➡️ Digite a porta do FRONTEND para a instancia; Ex: 3000 A 3999
+
+9️⃣ Escolha a porta do backend (4000 a 4999): 🚪
+
+Digite: 4000 ➡️ Digite a porta do BACKEND para esta instancia; Ex: 4000 A 4999
+
+🔟 Escolha a porta do Redis/Agendamento de Mensagens (5000 a 5999): ⏰
+
+Digite: 5000 ➡️ Digite a porta do REDIS/AGENDAMENTO MSG para a instancia; Ex: 5000 A 5999 = padrão dos redis é 6379 / na instalação com docker usar 5000
+Lembre-se: 📝
+
+Copie e cole com cuidado para evitar erros.
+Anote as informações que você inserir, como senhas e portas, para uso futuro.
+Se tiver dúvidas, consulte a documentação ou peça ajuda! 😉
+
+Após a instalação, você poderá acessar o sistema com as seguintes credenciais padrão:
+
+Usuário: admin@admin.com 🧑‍💻
+Senha: 123456 🔑
+
+⚠️ IMPORTANTE: ⚠️
+
+Recomendamos que você altere a senha padrão do usuário admin@admin.com imediatamente após o primeiro acesso para garantir a segurança do seu sistema.
+Utilize uma senha forte, com letras maiúsculas e minúsculas, números e símbolos.
+Armazene a nova senha em um local seguro.
+Lembre-se: a segurança do seu sistema é fundamental! 😉

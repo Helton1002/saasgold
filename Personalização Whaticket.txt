@@ -1,0 +1,92 @@
+🎨 Personalizando a Aparência do Sistema: 🎨
+
+Para customizar o visual do seu sistema, como cores, logotipos e favicon, siga estas etapas:
+
+1️⃣ Acesse o servidor como usuário "deploy":
+
+sudo su - deploy
+
+2️⃣ Altere a cor primária:
+
+Substitua a cor atual pelo código hexadecimal desejado: #2DDD7F.
+
+➡️ /public/index.html
+
+Linha 39: border-top: 5px solid #2DDD7F;
+
+Linha 63: background-color: #2DDD7F;
+
+➡️ /src/app.js
+
+Substitua todas as ocorrências #2DDD7F
+
+➡️ /src/layout/index.js
+
+Linha 57: backgroundColor: theme.mode === 'light' ? '#2DDD7F' : '#1c1c1c',
+
+Linha 61: color: theme.mode === 'light' ? '#2DDD7F' : '#FFF',
+
+➡️ /src/pages/Dashboard/ChartsDate.js
+
+Linha 81: backgroundColor: '#2DDD7F',
+
+➡️ /src/pages/Dashboard/ChartsUser.js
+
+Linha 92: backgroundColor: '#2DDD7F',
+
+3️⃣ Substitua o logotipo e os ícones favicon:
+
+Substitua os arquivos de logotipo e favicon nas pastas /frontend/src/assets, /frontend/public/ e /backend/public/logotipos pelos seus próprios arquivos.
+
+4️⃣ Altere o nome da empresa e o copyright:
+
+Abra o arquivo /frontend/package.json e procure pelas informações nome da empresa.
+
+Linha 5: "nomeEmpresa": "Whaticket SaaS",
+
+5️⃣ Alterar o nome da empresa nas página e no app de navegador.
+
+Abra os arquivos /frontend/public/index.html e manifest.json, /frontend/src/pages/Signup/index.js e faça as substituições.
+
+6️⃣ Alterar o nome exibido nos Dispositivos:
+
+Abra o arquivo /backend/src/libs/wbot.ts na linha 131 altere:
+
+process.env.BROWSER_CLIENT || "Whaticket",
+
+7️⃣ Alterar nome do remetente de E-mails e logo:
+
+Abra o arquivo \backend\src\services\ForgotPassWordServices\SendMail.ts e faça as substituições nas seguintes linhas:
+
+subject: "Redefinição de Senha - Whaticket SaaS (Linha 37)
+
+<td align="center" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:36px;mso-line-height-rule:exactly;font-family:roboto, 'helvetica neue', helvetica, arial, sans-serif;font-size:30px;font-style:normal;font-weight:bold;color:#212121">Bem-vindo ao Whaticket SaaS</h1></td> (Linha 145)
+
+<td align="center" style="padding:0;Margin:0;font-size:0px"><img src="https://i.imgur.com/MgSldkX.png" alt style="display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic" width="205"></td> (Linha 125)
+
+8️⃣ Recompile o frontend:
+
+Navegue até o diretório do frontend:
+
+cd /home/deploy/"nome"/frontend
+
+Execute o comando de rebuild:
+
+npm run build
+
+9️⃣ Recompile o backend (Apenas para o passo 6️⃣ e 7️⃣):
+
+Navegue até o diretório do backend:
+
+cd /home/deploy/"nome"/backend
+
+Execute o comando de rebuild:
+
+npm run build
+
+Observações:
+
+Faça backup dos arquivos originais antes de modificá-los, para o caso de precisar restaurá-los.
+Após as alterações, limpe o cache do seu navegador para ver as mudanças.
+Se você não se sentir confortável em editar os arquivos diretamente, peça ajuda a um desenvolvedor.
+Com estas dicas, você poderá personalizar o visual do seu sistema e deixá-lo com a identidade da sua marca! ✨
